@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Bruger oprettet";
+    var nyBruger = (BlendedLearningWebsite.Models.Domain.Bruger)ViewData.Model;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @{ if (@nyBruger != null)
+        {
+            <p>Bruger oprettet! Dit id er @nyBruger.Id</p>
+        }
+    }
+</div>

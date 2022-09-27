@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "DIP";
+    BlendedLearningWebsite.Models.Domain.Bruger bruger = ViewData.Model;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @{
+        if (@bruger != null)
+        {
+            <p>
+                Velkommen tilbage :).
+                <b>Dine forløb:</b>
+                <br />
+
+                @foreach (var forløb in @bruger.Forløb)
+                {
+                    <br /> @Html.ActionLink(@forløb.ToString(), "Details", "Forloeb", new {id=@forløb.Id})
+                }
+                <br />Dit id er @bruger.Id
+            </p>
+        }
+        else
+        {
+            <p>Bruger ikke fundet.</p>
+            <p>@Html.ActionLink("Opret bruger", "Create", "Home")</p>
+        }
+    }
+
+
+
+</div>
